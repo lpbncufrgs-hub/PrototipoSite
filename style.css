@@ -748,3 +748,87 @@ footer p {
     transform: scale(1.05);
     opacity: 1;
 }
+
+/* ==========================================================================
+   Menu Hambúrguer e Responsividade Mobile
+   ========================================================================== */
+
+/* Esconde o hambúrguer no desktop */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    z-index: 101; /* Fica acima do menu quando aberto */
+}
+
+/* Estilo das 3 barras do hambúrguer */
+.hamburger .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    background-color: #fff;
+    border-radius: 2px;
+}
+
+/* Ajustes para telas até 850px (Celulares e Tablets menores) */
+@media (max-width: 850px) {
+    /* Exibe o hambúrguer */
+    .hamburger {
+        display: block;
+    }
+
+    /* Animação do hambúrguer virando um "X" quando ativo */
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Transforma os links em um menu lateral/dropdown */
+    .nav-links {
+        position: fixed;
+        left: -100%; /* Esconde o menu fora da tela à esquerda */
+        top: 76px; /* Altura aproximada do navbar */
+        gap: 0;
+        flex-direction: column;
+        background-color: #050505;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        border-bottom: 1px solid #222;
+        padding-bottom: 1rem;
+    }
+
+    /* Classe ativada pelo JavaScript para trazer o menu para a tela */
+    .nav-links.active {
+        left: 0;
+    }
+
+    .nav-links li {
+        margin: 1.5rem 0;
+    }
+
+    /* Ajustes gerais de layout para mobile mantidos */
+    .typewriter-container {
+        font-size: 2rem;
+    }
+    
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .contact-form {
+        padding: 1.5rem;
+    }
+}
