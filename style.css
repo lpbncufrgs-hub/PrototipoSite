@@ -842,3 +842,11 @@ footer p {
         padding: 1.5rem;
     }
 }
+
+/* Ajuste para imagens reais nos cards dos membros */
+.member-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Faz a imagem preencher o espaço sem distorcer */
+    border-radius: 50%; /* Mantém a imagem redonda acompanhando a borda principal */
+}
