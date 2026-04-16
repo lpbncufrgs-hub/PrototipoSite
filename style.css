@@ -39,8 +39,8 @@ body {
 .logo {
     display: flex;
     align-items: center;
-    gap: 12px; /* Espaço entre o ícone e o texto */
-    text-decoration: none; /* Remove sublinhado do link */
+    gap: 12px; 
+    text-decoration: none; 
 }
 
 .logo-text {
@@ -244,9 +244,6 @@ footer p {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
-    .nav-links {
-        display: none; /* Em um site final, isso seria substituído por um menu hamburguer */
-    }
 }
 
 /* ==========================================================================
@@ -338,7 +335,7 @@ footer p {
     justify-content: center;
     align-items: center;
     border: 2px solid #222;
-    color: #444; /* Cor do ícone SVG */
+    color: #444; 
 }
 
 .member-photo svg {
@@ -421,7 +418,7 @@ footer p {
 .pub-year {
     font-size: 2rem;
     font-weight: 300;
-    color: #4da6ff; /* Destaque no azul/ciano */
+    color: #4da6ff; 
     margin-bottom: 1.5rem;
     border-bottom: 1px solid #222;
     padding-bottom: 0.5rem;
@@ -430,7 +427,7 @@ footer p {
 .pub-list {
     display: flex;
     flex-direction: column;
-    gap: 2rem; /* Espaçamento entre os artigos */
+    gap: 2rem; 
 }
 
 /* Card/Bloco do Artigo */
@@ -522,7 +519,7 @@ footer p {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 1rem;
-    justify-content: center; /* Centraliza o grid em si */
+    justify-content: center; 
 }
 
 .alumni-list li {
@@ -531,7 +528,7 @@ footer p {
     padding: 8px 12px;
     border-bottom: 1px solid #1a1a1a;
     transition: color 0.3s ease;
-    text-align: center; /* Centraliza o texto de cada nome na lista */
+    text-align: center; 
 }
 
 .alumni-list li:hover {
@@ -773,9 +770,15 @@ footer p {
 
 /* Ajustes para telas até 850px (Celulares e Tablets menores) */
 @media (max-width: 850px) {
-    /* Exibe o hambúrguer */
+    /* Mostra o hambúrguer e empurra ele para a extrema direita */
     .hamburger {
         display: block;
+        margin-left: auto;
+    }
+
+    /* Remove o container do menu do fluxo normal para não bagunçar o topo */
+    .nav-container nav {
+        position: absolute;
     }
 
     /* Animação do hambúrguer virando um "X" quando ativo */
@@ -789,31 +792,38 @@ footer p {
         transform: translateY(-8px) rotate(-45deg);
     }
 
-    /* Transforma os links em um menu lateral/dropdown */
+    /* Estilização do Menu Dropdown Lateral */
     .nav-links {
         position: fixed;
         left: -100%; /* Esconde o menu fora da tela à esquerda */
-        top: 76px; /* Altura aproximada do navbar */
+        top: 75px; /* Altura exata para ficar logo abaixo do cabeçalho */
         gap: 0;
         flex-direction: column;
-        background-color: #050505;
+        background-color: rgba(5, 5, 5, 0.98); /* Fundo preto quase sólido */
         width: 100%;
+        height: calc(100vh - 75px); /* Preenche o resto da tela para baixo */
         text-align: center;
-        transition: 0.3s;
-        border-bottom: 1px solid #222;
-        padding-bottom: 1rem;
+        transition: left 0.4s ease-in-out;
+        padding-top: 2rem;
+        z-index: 99; /* Garante que fique por cima de textos e imagens */
     }
 
-    /* Classe ativada pelo JavaScript para trazer o menu para a tela */
+    /* Classe ativada pelo JavaScript para deslizar o menu para a tela */
     .nav-links.active {
         left: 0;
     }
 
+    /* Espaçamento e tamanho das letras no celular */
     .nav-links li {
         margin: 1.5rem 0;
     }
 
-    /* Ajustes gerais de layout para mobile mantidos */
+    .nav-links li a {
+        font-size: 1.3rem;
+        display: block; /* Aumenta a área de clique para o dedo */
+    }
+
+    /* Ajustes gerais de layout mobile mantidos */
     .typewriter-container {
         font-size: 2rem;
     }

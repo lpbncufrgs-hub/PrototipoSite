@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+    // Código anterior de destacar o link do menu...
     const currentPath = window.location.pathname.split("/").pop();
     const navLinks = document.querySelectorAll('.nav-links a');
 
@@ -9,8 +10,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-
+    // --- Efeito Máquina de Escrever (Typewriter) ---
     const textElement = document.getElementById("typewriter-text");
+    
     if (textElement) {
         const textToType = "Laboratório de Psicobiologia e Neurocomputação";
         const typingSpeed = 30; 
@@ -26,6 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
                
             }
         }
+
+        // Inicia o efeito
         type();
     }
 });
